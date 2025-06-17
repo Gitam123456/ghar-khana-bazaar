@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -484,7 +483,11 @@ const Index = () => {
 
       {/* Enhanced CTA Section */}
       <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"1\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-white rounded-full animate-float"></div>
+          <div className="absolute top-60 right-20 w-24 h-24 bg-yellow-300 rounded-full animate-floating3d"></div>
+          <div className="absolute bottom-40 left-1/4 w-28 h-28 bg-orange-300 rounded-full animate-pulse-subtle"></div>
+        </div>
         
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-4xl md:text-6xl font-black mb-6 font-poppins">
