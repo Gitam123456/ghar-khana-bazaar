@@ -12,86 +12,112 @@ const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [cart, setCart] = useState<{[key: number]: number}>({});
 
-  const categories = ["All", "Starters", "Main Course", "Rice & Biryani", "Breads", "Desserts", "Beverages"];
+  const categories = ["All", "Breakfast", "Main Course", "Rice Items", "Breads", "Sweets", "Beverages"];
 
   const foodItems = [
     {
       id: 1,
-      name: "Chicken Biryani",
-      description: "Authentic Hyderabadi chicken biryani with aromatic basmati rice and tender chicken",
-      price: 280,
-      originalPrice: 320,
+      name: "Masala Dosa",
+      description: "Crispy fermented crepe filled with spiced potato masala, served with sambar and chutneys",
+      price: 120,
+      originalPrice: 140,
       rating: 4.8,
-      image: "https://images.unsplash.com/photo-1563379091339-03246963d129?w=300&h=200&fit=crop",
-      category: "Rice & Biryani",
-      isVeg: false,
+      image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=300&h=200&fit=crop",
+      category: "Breakfast",
+      isVeg: true,
       isPopular: true,
-      discount: "12% OFF"
+      discount: "14% OFF"
     },
     {
       id: 2,
-      name: "Dal Makhani",
-      description: "Creamy black lentils slow-cooked with butter and aromatic spices",
-      price: 180,
-      originalPrice: 200,
+      name: "Rava Idli",
+      description: "Soft steamed semolina cakes garnished with cashews and curry leaves",
+      price: 80,
+      originalPrice: 90,
       rating: 4.6,
-      image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=200&fit=crop",
-      category: "Main Course",
+      image: "https://images.unsplash.com/photo-1630383249896-424e482df921?w=300&h=200&fit=crop",
+      category: "Breakfast",
       isVeg: true,
       isPopular: false,
-      discount: "10% OFF"
+      discount: "11% OFF"
     },
     {
       id: 3,
-      name: "Paneer Butter Masala",
-      description: "Rich and creamy cottage cheese curry in tomato-based gravy",
-      price: 220,
-      originalPrice: 250,
+      name: "Bisi Bele Bath",
+      description: "Traditional Karnataka rice dish cooked with lentils, vegetables and aromatic spices",
+      price: 150,
+      originalPrice: 170,
       rating: 4.7,
-      image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=300&h=200&fit=crop",
-      category: "Main Course",
+      image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=200&fit=crop",
+      category: "Rice Items",
       isVeg: true,
       isPopular: true,
       discount: "12% OFF"
     },
     {
       id: 4,
-      name: "Chicken Tikka",
-      description: "Succulent pieces of chicken marinated in yogurt and spices, grilled to perfection",
-      price: 350,
-      originalPrice: 380,
+      name: "Mysore Pak",
+      description: "Traditional Karnataka sweet made with gram flour, ghee and sugar",
+      price: 200,
+      originalPrice: 220,
       rating: 4.9,
-      image: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=300&h=200&fit=crop",
-      category: "Starters",
-      isVeg: false,
+      image: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=300&h=200&fit=crop",
+      category: "Sweets",
+      isVeg: true,
+      isPopular: true,
+      discount: "9% OFF"
+    },
+    {
+      id: 5,
+      name: "Neer Dosa",
+      description: "Delicate, paper-thin rice crepes from coastal Karnataka",
+      price: 100,
+      originalPrice: 110,
+      rating: 4.5,
+      image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=300&h=200&fit=crop",
+      category: "Breakfast",
+      isVeg: true,
+      isPopular: false,
+      discount: "9% OFF"
+    },
+    {
+      id: 6,
+      name: "Ragi Mudde",
+      description: "Nutritious finger millet balls served with sambar or curry",
+      price: 90,
+      originalPrice: 100,
+      rating: 4.4,
+      image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=300&h=200&fit=crop",
+      category: "Main Course",
+      isVeg: true,
+      isPopular: false,
+      discount: "10% OFF"
+    },
+    {
+      id: 7,
+      name: "Coconut Rice",
+      description: "Fragrant rice cooked with fresh coconut, curry leaves and mustard seeds",
+      price: 110,
+      originalPrice: 120,
+      rating: 4.6,
+      image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=200&fit=crop",
+      category: "Rice Items",
+      isVeg: true,
       isPopular: true,
       discount: "8% OFF"
     },
     {
-      id: 5,
-      name: "Garlic Naan",
-      description: "Soft and fluffy Indian bread topped with garlic and herbs",
-      price: 80,
-      originalPrice: 90,
-      rating: 4.5,
-      image: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=300&h=200&fit=crop",
-      category: "Breads",
+      id: 8,
+      name: "Filter Coffee",
+      description: "Authentic South Indian filter coffee with perfect blend of chicory",
+      price: 40,
+      originalPrice: 50,
+      rating: 4.8,
+      image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&h=200&fit=crop",
+      category: "Beverages",
       isVeg: true,
-      isPopular: false,
-      discount: "11% OFF"
-    },
-    {
-      id: 6,
-      name: "Gulab Jamun",
-      description: "Traditional Indian sweet dumplings in sugar syrup",
-      price: 120,
-      originalPrice: 140,
-      rating: 4.4,
-      image: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=300&h=200&fit=crop",
-      category: "Desserts",
-      isVeg: true,
-      isPopular: false,
-      discount: "14% OFF"
+      isPopular: true,
+      discount: "20% OFF"
     }
   ];
 
@@ -132,13 +158,19 @@ const Menu = () => {
       <Header />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Karnataka Traditional Menu</h1>
+          <p className="text-gray-600 text-lg">Authentic South Indian flavors delivered fresh</p>
+        </div>
+
         {/* Search and Filter Section */}
         <div className="mb-8">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-6">
             <div className="flex-1 max-w-md relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
               <Input
-                placeholder="Search for dishes..."
+                placeholder="Search for traditional dishes..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
@@ -193,8 +225,8 @@ const Menu = () => {
                   <Heart className="w-4 h-4" />
                 </Button>
                 <div className="absolute bottom-3 left-3">
-                  <Badge variant={item.isVeg ? "secondary" : "destructive"} className="text-xs">
-                    {item.isVeg ? "VEG" : "NON-VEG"}
+                  <Badge variant="secondary" className="text-xs bg-green-100 text-green-800">
+                    VEG
                   </Badge>
                 </div>
               </div>

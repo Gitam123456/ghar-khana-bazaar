@@ -86,66 +86,66 @@ const Index = () => {
   const popularRestaurants = [
     {
       id: 1,
-      name: "Mama's Kitchen",
-      cuisine: "North Indian",
+      name: "Karnataka Mess",
+      cuisine: "South Indian",
       rating: 4.8,
       deliveryTime: "25-30 min",
-      image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=300&h=200&fit=crop",
       offer: "20% OFF"
     },
     {
       id: 2,
-      name: "Spice Garden",
-      cuisine: "South Indian",
+      name: "Mysore Palace Restaurant",
+      cuisine: "Karnataka Special",
       rating: 4.6,
       deliveryTime: "30-35 min",
-      image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=300&h=200&fit=crop",
       offer: "Free Delivery"
     },
     {
       id: 3,
-      name: "Biriyani House",
-      cuisine: "Mughlai",
+      name: "Udupi Kitchen",
+      cuisine: "Coastal Karnataka",
       rating: 4.9,
       deliveryTime: "20-25 min",
-      image: "https://images.unsplash.com/photo-1563379091339-03246963d129?w=300&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=200&fit=crop",
       offer: "Buy 1 Get 1"
     },
     {
       id: 4,
-      name: "Punjab Dhaba",
-      cuisine: "Punjabi",
+      name: "Bangalore Tiffin Center",
+      cuisine: "Traditional",
       rating: 4.7,
       deliveryTime: "35-40 min",
-      image: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=300&h=200&fit=crop",
+      image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=300&h=200&fit=crop",
       offer: "15% OFF"
     }
   ];
 
   const categories = [
-    { name: "Pizza", icon: "🍕", count: "120+ options" },
-    { name: "Burger", icon: "🍔", count: "85+ options" },
-    { name: "Chinese", icon: "🥡", count: "95+ options" },
-    { name: "Indian", icon: "🍛", count: "150+ options" },
-    { name: "Italian", icon: "🍝", count: "60+ options" },
-    { name: "Desserts", icon: "🍰", count: "40+ options" }
+    { name: "Dosa", icon: "🥞", count: "120+ varieties" },
+    { name: "Idli", icon: "⚪", count: "85+ options" },
+    { name: "Vada", icon: "🍩", count: "95+ options" },
+    { name: "Sambar", icon: "🍲", count: "150+ types" },
+    { name: "Rasam", icon: "🍵", count: "60+ flavors" },
+    { name: "Payasam", icon: "🍮", count: "40+ varieties" }
   ];
 
   const features = [
     {
       icon: <Clock className="w-8 h-8 text-orange-500" />,
-      title: "Fast Delivery",
-      description: "Get your food delivered in 30 minutes or less"
+      title: "Fresh & Hot",
+      description: "Traditional South Indian food prepared fresh and served hot"
     },
     {
       icon: <Shield className="w-8 h-8 text-green-500" />,
-      title: "Safe & Hygienic",
-      description: "100% safe and hygienic food preparation"
+      title: "Authentic Recipes",
+      description: "Original Karnataka recipes passed down through generations"
     },
     {
       icon: <Award className="w-8 h-8 text-blue-500" />,
       title: "Best Quality",
-      description: "Premium quality ingredients and authentic taste"
+      description: "Premium ingredients sourced directly from Karnataka"
     }
   ];
 
@@ -159,21 +159,21 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="z-10 relative">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Delicious Food
+                Authentic South Indian
                 <br />
-                <span className="text-yellow-300">Delivered Fast</span>
+                <span className="text-yellow-300">Karnataka Flavors</span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 opacity-90">
-                Order from your favorite restaurants and get fresh, hot food delivered to your doorstep in minutes.
+                Experience the rich heritage of Karnataka cuisine with traditional dosas, idlis, and more delivered fresh to your doorstep.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/menu">
-                  <Button size="lg" variant="secondary" className="text-orange-600 font-semibold px-8 hover:scale-105 transition-all duration-300">
+                  <Button size="lg" variant="secondary" className="text-orange-600 font-semibold px-8 hover:scale-105 hover:bg-yellow-200 transition-all duration-300 shadow-lg hover:shadow-xl">
                     Order Now
                   </Button>
                 </Link>
                 <Link to="/menu">
-                  <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-orange-600 px-8 hover:scale-105 transition-all duration-300">
+                  <Button size="lg" variant="outline" className="text-white border-white hover:bg-gradient-to-r hover:from-yellow-400 hover:to-orange-400 hover:text-orange-800 hover:border-yellow-400 px-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                     View Menu
                   </Button>
                 </Link>
@@ -182,8 +182,8 @@ const Index = () => {
             <div className="hidden lg:block relative">
               <img 
                 ref={heroImageRef}
-                src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=500&fit=crop" 
-                alt="Delicious Food" 
+                src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=600&h=500&fit=crop" 
+                alt="South Indian Thali" 
                 className="rounded-2xl shadow-2xl transition-transform duration-1000 ease-out"
                 style={{ transformOrigin: 'center center' }}
               />
@@ -191,15 +191,15 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Floating food elements */}
+        {/* Floating South Indian food elements */}
         <div className="absolute top-20 right-10 animate-bounce delay-1000">
-          <div className="text-6xl opacity-20">🍕</div>
+          <div className="text-6xl opacity-20">🥞</div>
         </div>
         <div className="absolute bottom-20 left-10 animate-bounce delay-2000">
-          <div className="text-5xl opacity-20">🍔</div>
+          <div className="text-5xl opacity-20">⚪</div>
         </div>
         <div className="absolute top-40 left-1/4 animate-bounce delay-500">
-          <div className="text-4xl opacity-20">🍜</div>
+          <div className="text-4xl opacity-20">🍲</div>
         </div>
       </section>
 
@@ -207,8 +207,8 @@ const Index = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">What's on your mind?</h2>
-            <p className="text-gray-600">Choose from a variety of cuisines</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Traditional Karnataka Delicacies</h2>
+            <p className="text-gray-600">Authentic flavors from the heart of South India</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -235,8 +235,8 @@ const Index = () => {
           >
             <div className="flex justify-between items-center mb-12">
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-2">Popular Restaurants</h2>
-                <p className="text-gray-600">Most ordered from restaurants near you</p>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">Popular Karnataka Restaurants</h2>
+                <p className="text-gray-600">Most loved South Indian food destinations</p>
               </div>
               <Link to="/menu">
                 <Button variant="outline" className="hover:scale-105 transition-transform duration-300">View All</Button>
@@ -276,16 +276,16 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Floating vegetables */}
+        {/* Floating South Indian vegetables */}
         <div 
           ref={vegetablesRef}
           className="absolute right-0 top-1/2 transform -translate-y-1/2 transition-all duration-1000 ease-out"
           style={{ opacity: 0, transform: 'translateX(-50px) rotateY(15deg)' }}
         >
           <div className="flex flex-col space-y-8">
-            <div className="text-8xl opacity-30 animate-bounce delay-300">🥕</div>
-            <div className="text-6xl opacity-30 animate-bounce delay-700">🥬</div>
-            <div className="text-7xl opacity-30 animate-bounce delay-1100">🍅</div>
+            <div className="text-8xl opacity-30 animate-bounce delay-300">🥥</div>
+            <div className="text-6xl opacity-30 animate-bounce delay-700">🌶️</div>
+            <div className="text-7xl opacity-30 animate-bounce delay-1100">🍃</div>
           </div>
         </div>
       </section>
@@ -296,7 +296,7 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Ghar Khanaa?</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We provide the best food delivery experience with quality assurance and customer satisfaction
+              We bring you the authentic taste of Karnataka with traditional recipes and fresh ingredients
             </p>
           </div>
           
@@ -332,20 +332,20 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="hover:scale-110 transition-transform duration-500">
-              <div className="text-4xl font-bold mb-2 animate-pulse">500+</div>
-              <div className="text-orange-100">Partner Restaurants</div>
+              <div className="text-4xl font-bold mb-2 animate-pulse">200+</div>
+              <div className="text-orange-100">Karnataka Restaurants</div>
             </div>
             <div className="hover:scale-110 transition-transform duration-500">
-              <div className="text-4xl font-bold mb-2 animate-pulse delay-200">50K+</div>
-              <div className="text-orange-100">Happy Customers</div>
+              <div className="text-4xl font-bold mb-2 animate-pulse delay-200">75K+</div>
+              <div className="text-orange-100">Happy Food Lovers</div>
             </div>
             <div className="hover:scale-110 transition-transform duration-500">
-              <div className="text-4xl font-bold mb-2 animate-pulse delay-400">1M+</div>
-              <div className="text-orange-100">Orders Delivered</div>
+              <div className="text-4xl font-bold mb-2 animate-pulse delay-400">500K+</div>
+              <div className="text-orange-100">Dosas Delivered</div>
             </div>
             <div className="hover:scale-110 transition-transform duration-500">
-              <div className="text-4xl font-bold mb-2 animate-pulse delay-600">25+</div>
-              <div className="text-orange-100">Cities Covered</div>
+              <div className="text-4xl font-bold mb-2 animate-pulse delay-600">15+</div>
+              <div className="text-orange-100">Karnataka Cities</div>
             </div>
           </div>
         </div>
@@ -363,19 +363,19 @@ const Index = () => {
       <section className="py-16 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-4">
-            Ready to Order Your Favorite Food?
+            Craving Authentic Karnataka Food?
           </h2>
           <p className="text-gray-300 mb-8 text-lg">
-            Join millions of food lovers and get your favorite meals delivered in minutes
+            Join thousands of food lovers and taste the traditional flavors of South India
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/menu">
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 px-8 hover:scale-105 transition-all duration-300">
+              <Button size="lg" className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 px-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                 Start Ordering
               </Button>
             </Link>
             <Link to="/menu">
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-gray-900 px-8 hover:scale-105 transition-all duration-300">
+              <Button size="lg" variant="outline" className="text-white border-white hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-400 hover:text-white hover:border-orange-400 px-8 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                 Download App
               </Button>
             </Link>
