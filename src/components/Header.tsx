@@ -15,7 +15,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
             <Link to="/" className="text-2xl font-bold text-orange-600">
-              HomeFoodi
+              Ghar Khanaa
             </Link>
             <div className="hidden md:flex items-center space-x-2 bg-gray-50 rounded-lg px-3 py-2 max-w-md">
               <Search className="w-4 h-4 text-gray-400" />
@@ -30,44 +30,52 @@ const Header = () => {
             <Link to="/">
               <Button 
                 variant={isActive("/") ? "default" : "ghost"} 
-                className="flex items-center space-x-2"
+                size="sm"
+                className="flex items-center space-x-2 px-3 py-2"
               >
                 <Home className="w-4 h-4" />
-                <span className="hidden sm:inline">Home</span>
+                <span className="hidden sm:inline text-sm">Home</span>
               </Button>
             </Link>
             <Link to="/menu">
               <Button 
                 variant={isActive("/menu") ? "default" : "ghost"} 
-                className="flex items-center space-x-2"
+                size="sm"
+                className="flex items-center space-x-2 px-3 py-2"
               >
                 <MenuIcon className="w-4 h-4" />
-                <span className="hidden sm:inline">Menu</span>
+                <span className="hidden sm:inline text-sm">Menu</span>
               </Button>
             </Link>
             <Link to="/orders">
               <Button 
                 variant={isActive("/orders") ? "default" : "ghost"} 
-                className="flex items-center space-x-2 relative"
+                size="sm"
+                className="flex items-center space-x-2 relative px-3 py-2"
               >
                 <ShoppingBag className="w-4 h-4" />
-                <span className="hidden sm:inline">Orders</span>
+                <span className="hidden sm:inline text-sm">Orders</span>
                 <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   2
                 </span>
               </Button>
             </Link>
-            <Button variant="ghost" className="flex items-center space-x-2">
+            <Button 
+              variant="ghost" 
+              size="sm"
+              className="flex items-center space-x-2 px-3 py-2"
+            >
               <Heart className="w-4 h-4" />
-              <span className="hidden sm:inline">Favorites</span>
+              <span className="hidden sm:inline text-sm">Favorites</span>
             </Button>
             <Link to="/profile">
               <Button 
                 variant={isActive("/profile") ? "default" : "ghost"} 
-                className="flex items-center space-x-2"
+                size="sm"
+                className="flex items-center space-x-2 px-3 py-2"
               >
                 <User className="w-4 h-4" />
-                <span className="hidden sm:inline">Profile</span>
+                <span className="hidden sm:inline text-sm">Profile</span>
               </Button>
             </Link>
           </nav>
