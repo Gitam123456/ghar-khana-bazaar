@@ -1,8 +1,9 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Clock, Truck, MapPin, Users, Award, Shield, ChefHat, Heart, ArrowRight } from "lucide-react";
+import { Star, Clock, Truck, MapPin, Users, Award, Shield, ChefHat, Heart, ArrowRight, Calendar, Phone } from "lucide-react";
 import Header from "@/components/Header";
 import { useEffect, useRef, useState } from "react";
 
@@ -11,7 +12,6 @@ const Index = () => {
   const foodItemsRef = useRef<HTMLDivElement>(null);
   const vegetablesRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
-  const heroSectionRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -93,90 +93,83 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const popularRestaurants = [
+  const eventPackages = [
     {
       id: 1,
-      name: "Karnataka Mess",
-      cuisine: "South Indian",
-      rating: 4.8,
-      deliveryTime: "25-30 min",
+      name: "Traditional Wedding Feast",
+      cuisine: "Karnataka Special",
+      pricePerHead: 599,
+      minGuests: 100,
       image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&h=300&fit=crop",
-      offer: "20% OFF",
-      originalPrice: "₹300",
-      currentPrice: "₹240"
+      includes: ["Banana Leaf Service", "15+ Traditional Dishes", "Live Dosa Counter", "Payasam Station"],
+      suitableFor: ["Weddings", "Reception", "Muhurtham"],
+      rating: 4.9,
+      bookings: "500+ Events"
     },
     {
       id: 2,
-      name: "Mysore Palace Restaurant",
-      cuisine: "Karnataka Special",
-      rating: 4.6,
-      deliveryTime: "30-35 min",
+      name: "Seemantha Special Menu",
+      cuisine: "Traditional Baby Shower",
+      pricePerHead: 399,
+      minGuests: 50,
       image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&h=300&fit=crop",
-      offer: "Free Delivery",
-      originalPrice: "₹450",
-      currentPrice: "₹450"
+      includes: ["Coconut Rice", "Bisi Bele Bath", "Traditional Sweets", "Fruit Platter"],
+      suitableFor: ["Baby Shower", "Seemantha", "Family Function"],
+      rating: 4.8,
+      bookings: "300+ Events"
     },
     {
       id: 3,
-      name: "Udupi Kitchen",
-      cuisine: "Coastal Karnataka",
-      rating: 4.9,
-      deliveryTime: "20-25 min",
+      name: "Gruha Pravesha Package",
+      cuisine: "Housewarming Special",
+      pricePerHead: 349,
+      minGuests: 30,
       image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
-      offer: "Buy 1 Get 1",
-      originalPrice: "₹280",
-      currentPrice: "₹140"
+      includes: ["Akki Rotti", "Chitranna", "Kosambari", "Filter Coffee"],
+      suitableFor: ["Housewarming", "Gruha Pravesha", "Puja"],
+      rating: 4.7,
+      bookings: "200+ Events"
     },
     {
       id: 4,
-      name: "Bangalore Tiffin Center",
-      cuisine: "Traditional",
-      rating: 4.7,
-      deliveryTime: "35-40 min",
-      image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&h=300&fit=crop",
-      offer: "15% OFF",
-      originalPrice: "₹200",
-      currentPrice: "₹170"
-    },
-    {
-      id: 5,
-      name: "Coorg Spice House",
-      cuisine: "Coorg Special",
-      rating: 4.8,
-      deliveryTime: "40-45 min",
+      name: "Corporate Catering",
+      cuisine: "Office Events",
+      pricePerHead: 299,
+      minGuests: 25,
       image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
-      offer: "25% OFF",
-      originalPrice: "₹350",
-      currentPrice: "₹262"
+      includes: ["Mini Meals", "Snack Boxes", "Tea/Coffee", "Dessert"],
+      suitableFor: ["Corporate", "Office Party", "Meeting"],
+      rating: 4.6,
+      bookings: "150+ Events"
     }
   ];
 
-  const categories = [
-    { name: "Dosa", icon: "🥞", count: "120+ varieties", color: "from-orange-400 to-red-500" },
-    { name: "Idli", icon: "⚪", count: "85+ options", color: "from-green-400 to-blue-500" },
-    { name: "Vada", icon: "🍩", count: "95+ options", color: "from-purple-400 to-pink-500" },
-    { name: "Sambar", icon: "🍲", count: "150+ types", color: "from-yellow-400 to-orange-500" },
-    { name: "Rasam", icon: "🍵", count: "60+ flavors", color: "from-red-400 to-pink-500" },
-    { name: "Payasam", icon: "🍮", count: "40+ varieties", color: "from-indigo-400 to-purple-500" }
+  const occasionTypes = [
+    { name: "Weddings", icon: "💍", count: "500+ Catered", color: "from-pink-400 to-red-500", description: "Traditional ceremonies" },
+    { name: "Baby Showers", icon: "👶", count: "300+ Events", color: "from-blue-400 to-purple-500", description: "Seemantha specials" },
+    { name: "Housewarming", icon: "🏠", count: "200+ Homes", color: "from-green-400 to-teal-500", description: "Gruha Pravesha" },
+    { name: "Corporate", icon: "🏢", count: "150+ Companies", color: "from-orange-400 to-red-500", description: "Office catering" },
+    { name: "Festivals", icon: "🎊", count: "400+ Celebrations", color: "from-yellow-400 to-orange-500", description: "Ugadi, Diwali & more" },
+    { name: "Birthdays", icon: "🎂", count: "250+ Parties", color: "from-purple-400 to-pink-500", description: "Special celebrations" }
   ];
 
   const features = [
     {
-      icon: <Clock className="w-10 h-10 text-orange-500" />,
-      title: "Lightning Fast",
-      description: "Get your favorite Karnataka dishes delivered in just 25 minutes",
+      icon: <Calendar className="w-10 h-10 text-orange-500" />,
+      title: "Event Planning",
+      description: "Complete event management with customized menus for every occasion",
       gradient: "from-orange-500 to-red-500"
     },
     {
       icon: <Shield className="w-10 h-10 text-green-500" />,
       title: "100% Authentic",
-      description: "Traditional recipes passed down through generations of Karnataka families",
+      description: "Traditional Karnataka recipes with fresh ingredients and authentic taste",
       gradient: "from-green-500 to-teal-500"
     },
     {
       icon: <Award className="w-10 h-10 text-blue-500" />,
-      title: "Premium Quality",
-      description: "Sourced from the finest spice gardens and organic farms of Karnataka",
+      title: "Live Cooking",
+      description: "On-site cooking with experienced chefs for fresh, hot meals",
       gradient: "from-blue-500 to-purple-500"
     }
   ];
@@ -185,11 +178,8 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-x-hidden">
       <Header />
       
-      {/* Enhanced Hero Section with 3D Depth */}
-      <section 
-        ref={heroSectionRef}
-        className="relative min-h-screen bg-gradient-to-br from-orange-600 via-red-500 to-pink-600 text-white overflow-hidden perspective-1000"
-      >
+      {/* Enhanced Hero Section for Catering */}
+      <section className="relative min-h-screen bg-gradient-to-br from-orange-600 via-red-500 to-pink-600 text-white overflow-hidden perspective-1000">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-white rounded-full animate-float"></div>
@@ -202,18 +192,18 @@ const Index = () => {
             <div className={`z-10 relative transform transition-all duration-1000 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}>
               <div className="inline-block mb-6">
                 <Badge className="bg-yellow-400 text-orange-800 px-4 py-2 text-sm font-semibold animate-pulse-subtle">
-                  🔥 Now delivering in 25+ cities
+                  🔥 Premium Event Catering
                 </Badge>
               </div>
               
               <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-                Taste the
+                Celebrate with
                 <br />
-                <span className="gradient-text font-poppins">Soul of Karnataka</span>
+                <span className="gradient-text font-poppins">Authentic Karnataka</span>
               </h1>
               
               <p className="text-xl md:text-2xl mb-8 opacity-90 font-inter font-light leading-relaxed">
-                Experience authentic South Indian flavors crafted with love, tradition, and the finest spices from Karnataka's heritage kitchens.
+                Premium catering for weddings, housewarmings, baby showers, and all your special occasions. Traditional recipes, modern service.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -223,33 +213,34 @@ const Index = () => {
                     className="btn-premium text-white font-bold px-8 py-4 text-lg shadow-2xl transform hover:scale-105 transition-all duration-300"
                   >
                     <ChefHat className="w-5 h-5 mr-2" />
-                    Order Now
+                    View Packages
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
-                <Link to="/menu">
+                <a href="https://wa.me/919123456789?text=Hi%20Ghar%20Khanaa!%20I%27d%20like%20to%20book%20catering%20for%20my%20event." target="_blank" rel="noopener noreferrer">
                   <Button 
                     size="lg" 
                     variant="outline" 
                     className="glass-effect text-white border-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-xl"
                   >
-                    View Menu
+                    <Phone className="w-5 h-5 mr-2" />
+                    WhatsApp Booking
                   </Button>
-                </Link>
+                </a>
               </div>
               
               <div className="flex items-center space-x-6 text-sm opacity-90">
                 <div className="flex items-center space-x-2">
                   <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  <span className="font-semibold">4.8 Rating</span>
+                  <span className="font-semibold">4.9 Rating</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Users className="w-5 h-5" />
-                  <span className="font-semibold">50K+ Happy Customers</span>
+                  <span className="font-semibold">1500+ Events</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Truck className="w-5 h-5" />
-                  <span className="font-semibold">25min Delivery</span>
+                  <Calendar className="w-5 h-5" />
+                  <span className="font-semibold">Free Planning</span>
                 </div>
               </div>
             </div>
@@ -258,51 +249,49 @@ const Index = () => {
               <img 
                 ref={heroImageRef}
                 src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=700&h=600&fit=crop" 
-                alt="Authentic Karnataka Thali" 
+                alt="Traditional Karnataka Wedding Feast" 
                 className="rounded-3xl shadow-2xl transition-all duration-1000 ease-out transform-3d hover-tilt w-full h-auto object-cover"
                 style={{ transformOrigin: 'center center' }}
               />
               
-              {/* Floating food elements with 3D effects */}
+              {/* Floating elements */}
               <div className="absolute -top-10 -right-10 animate-floating3d">
-                <div className="text-8xl opacity-80 transform rotate-12">🥞</div>
+                <div className="text-8xl opacity-80 transform rotate-12">💍</div>
               </div>
               <div className="absolute -bottom-10 -left-10 animate-float">
-                <div className="text-7xl opacity-80 transform -rotate-12">🍲</div>
+                <div className="text-7xl opacity-80 transform -rotate-12">🍽️</div>
               </div>
               <div className="absolute top-1/2 -right-16 animate-pulse-subtle">
-                <div className="text-6xl opacity-60">⚪</div>
+                <div className="text-6xl opacity-60">🎊</div>
               </div>
             </div>
           </div>
         </div>
-        
-        {/* Gradient overlay for depth */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
       </section>
 
-      {/* Enhanced Categories Section with Netflix-style cards */}
+      {/* Occasion Types Section */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 font-poppins">
-              Karnataka's Finest <span className="gradient-text">Delicacies</span>
+              Perfect for Every <span className="gradient-text">Occasion</span>
             </h2>
             <p className="text-xl text-gray-600 font-inter max-w-2xl mx-auto">
-              Discover authentic flavors that have been perfecting South Indian cuisine for centuries
+              From intimate family gatherings to grand celebrations, we cater to all your special moments
             </p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {categories.map((category, index) => (
-              <Card key={index} className={`netflix-card text-center cursor-pointer group relative overflow-hidden bg-gradient-to-br ${category.color} border-0`}>
+            {occasionTypes.map((occasion, index) => (
+              <Card key={index} className={`netflix-card text-center cursor-pointer group relative overflow-hidden bg-gradient-to-br ${occasion.color} border-0`}>
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-                <CardContent className="p-8 relative z-10">
-                  <div className="text-5xl mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 transform">
-                    {category.icon}
+                <CardContent className="p-6 relative z-10">
+                  <div className="text-4xl mb-3 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 transform">
+                    {occasion.icon}
                   </div>
-                  <h3 className="font-bold text-white mb-2 text-lg font-poppins">{category.name}</h3>
-                  <p className="text-sm text-white/90 font-inter">{category.count}</p>
+                  <h3 className="font-bold text-white mb-1 text-sm font-poppins">{occasion.name}</h3>
+                  <p className="text-xs text-white/90 font-inter mb-1">{occasion.count}</p>
+                  <p className="text-xs text-white/80 font-inter">{occasion.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -310,7 +299,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Popular Restaurants with 3D cards */}
+      {/* Event Packages Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
@@ -321,31 +310,31 @@ const Index = () => {
             <div className="flex justify-between items-center mb-16">
               <div>
                 <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 font-poppins">
-                  Top <span className="gradient-text">Karnataka</span> Restaurants
+                  Premium <span className="gradient-text">Event Packages</span>
                 </h2>
-                <p className="text-xl text-gray-600 font-inter">Most loved destinations for authentic South Indian cuisine</p>
+                <p className="text-xl text-gray-600 font-inter">Curated menus for your special celebrations</p>
               </div>
               <Link to="/menu">
                 <Button variant="outline" className="hover:scale-105 transition-all duration-300 shadow-lg font-semibold">
-                  View All
+                  View All Packages
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-              {popularRestaurants.map((restaurant, index) => (
-                <Card key={restaurant.id} className="netflix-card overflow-hidden group border-0 shadow-xl card-3d">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+              {eventPackages.map((pkg, index) => (
+                <Card key={pkg.id} className="netflix-card overflow-hidden group border-0 shadow-xl card-3d">
                   <div className="relative overflow-hidden">
                     <img 
-                      src={restaurant.image} 
-                      alt={restaurant.name}
+                      src={pkg.image} 
+                      alt={pkg.name}
                       className="w-full h-48 object-cover transition-all duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                     
                     <Badge className="absolute top-3 left-3 bg-green-500 text-white font-bold animate-pulse">
-                      {restaurant.offer}
+                      {pkg.bookings}
                     </Badge>
                     
                     <Button
@@ -356,28 +345,39 @@ const Index = () => {
                       <Heart className="w-4 h-4" />
                     </Button>
                     
-                    {/* Price overlay on hover */}
                     <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <div className="flex items-center space-x-2">
-                        <span className="text-white font-bold text-lg">{restaurant.currentPrice}</span>
-                        {restaurant.originalPrice !== restaurant.currentPrice && (
-                          <span className="text-white/70 line-through text-sm">{restaurant.originalPrice}</span>
-                        )}
+                        <span className="text-white font-bold text-lg">₹{pkg.pricePerHead}/head</span>
+                        <span className="text-white/70 text-sm">Min {pkg.minGuests}</span>
                       </div>
                     </div>
                   </div>
                   
                   <CardContent className="p-6">
-                    <h3 className="font-bold text-lg mb-1 font-poppins group-hover:gradient-text transition-all duration-300">{restaurant.name}</h3>
-                    <p className="text-gray-600 text-sm mb-3 font-inter">{restaurant.cuisine}</p>
+                    <h3 className="font-bold text-lg mb-1 font-poppins group-hover:gradient-text transition-all duration-300">{pkg.name}</h3>
+                    <p className="text-gray-600 text-sm mb-3 font-inter">{pkg.cuisine}</p>
+                    
+                    <div className="mb-3">
+                      <p className="text-xs text-gray-500 mb-2">Includes:</p>
+                      <div className="flex flex-wrap gap-1">
+                        {pkg.includes.slice(0, 2).map((item, i) => (
+                          <Badge key={i} variant="secondary" className="text-xs">{item}</Badge>
+                        ))}
+                        {pkg.includes.length > 2 && (
+                          <Badge variant="secondary" className="text-xs">+{pkg.includes.length - 2} more</Badge>
+                        )}
+                      </div>
+                    </div>
+                    
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-1">
                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                        <span className="text-sm font-bold">{restaurant.rating}</span>
+                        <span className="text-sm font-bold">{pkg.rating}</span>
                       </div>
-                      <div className="flex items-center space-x-1 text-gray-500">
-                        <Clock className="w-4 h-4" />
-                        <span className="text-sm font-medium">{restaurant.deliveryTime}</span>
+                      <div className="flex flex-wrap gap-1">
+                        {pkg.suitableFor.slice(0, 2).map((occasion, i) => (
+                          <Badge key={i} variant="outline" className="text-xs">{occasion}</Badge>
+                        ))}
                       </div>
                     </div>
                   </CardContent>
@@ -387,21 +387,21 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Enhanced floating vegetables with 3D transforms */}
+        {/* Floating decorative elements */}
         <div 
           ref={vegetablesRef}
           className="absolute right-0 top-1/2 transform -translate-y-1/2 transition-all duration-1000 ease-out perspective-1000"
           style={{ opacity: 0, transform: 'translateX(-80px) rotateY(25deg) rotateZ(5deg)' }}
         >
           <div className="flex flex-col space-y-12">
-            <div className="text-9xl opacity-20 animate-floating3d transform hover:scale-110 transition-all duration-500">🥥</div>
-            <div className="text-7xl opacity-25 animate-float transform hover:scale-110 transition-all duration-500">🌶️</div>
-            <div className="text-8xl opacity-20 animate-pulse-subtle transform hover:scale-110 transition-all duration-500">🍃</div>
+            <div className="text-8xl opacity-20 animate-floating3d transform hover:scale-110 transition-all duration-500">🌶️</div>
+            <div className="text-6xl opacity-25 animate-float transform hover:scale-110 transition-all duration-500">🥥</div>
+            <div className="text-7xl opacity-20 animate-pulse-subtle transform hover:scale-110 transition-all duration-500">🍃</div>
           </div>
         </div>
       </section>
 
-      {/* Enhanced Features Section with 3D cards */}
+      {/* Features Section */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -409,7 +409,7 @@ const Index = () => {
               Why Choose <span className="gradient-text">Ghar Khanaa</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
-              We bring you the authentic taste of Karnataka with traditional recipes, fresh ingredients, and modern convenience
+              We bring authentic Karnataka flavors to your celebrations with professional service and traditional recipes
             </p>
           </div>
           
@@ -446,42 +446,43 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Statistics Section */}
+      {/* Statistics Section */}
       <section className="py-20 bg-gradient-to-br from-orange-600 via-red-500 to-pink-600 text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black mb-4 font-poppins">Trusted by Thousands</h2>
+            <p className="text-orange-100 text-lg font-inter">Making celebrations memorable across Karnataka</p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="hover-scale cursor-pointer group">
-              <div className="text-5xl md:text-6xl font-black mb-4 animate-pulse-subtle group-hover:gradient-text transition-all duration-300">200+</div>
-              <div className="text-orange-100 text-lg font-inter group-hover:text-white transition-all duration-300">Karnataka Restaurants</div>
+              <div className="text-4xl md:text-5xl font-black mb-2 animate-pulse-subtle group-hover:gradient-text transition-all duration-300">1500+</div>
+              <div className="text-orange-100 text-sm font-inter group-hover:text-white transition-all duration-300">Events Catered</div>
             </div>
             <div className="hover-scale cursor-pointer group">
-              <div className="text-5xl md:text-6xl font-black mb-4 animate-pulse-subtle group-hover:gradient-text transition-all duration-300">75K+</div>
-              <div className="text-orange-100 text-lg font-inter group-hover:text-white transition-all duration-300">Happy Food Lovers</div>
+              <div className="text-4xl md:text-5xl font-black mb-2 animate-pulse-subtle group-hover:gradient-text transition-all duration-300">500+</div>
+              <div className="text-orange-100 text-sm font-inter group-hover:text-white transition-all duration-300">Wedding Celebrations</div>
             </div>
             <div className="hover-scale cursor-pointer group">
-              <div className="text-5xl md:text-6xl font-black mb-4 animate-pulse-subtle group-hover:gradient-text transition-all duration-300">500K+</div>
-              <div className="text-orange-100 text-lg font-inter group-hover:text-white transition-all duration-300">Dosas Delivered</div>
+              <div className="text-4xl md:text-5xl font-black mb-2 animate-pulse-subtle group-hover:gradient-text transition-all duration-300">50K+</div>
+              <div className="text-orange-100 text-sm font-inter group-hover:text-white transition-all duration-300">Happy Guests Served</div>
             </div>
             <div className="hover-scale cursor-pointer group">
-              <div className="text-5xl md:text-6xl font-black mb-4 animate-pulse-subtle group-hover:gradient-text transition-all duration-300">15+</div>
-              <div className="text-orange-100 text-lg font-inter group-hover:text-white transition-all duration-300">Karnataka Cities</div>
+              <div className="text-4xl md:text-5xl font-black mb-2 animate-pulse-subtle group-hover:gradient-text transition-all duration-300">25+</div>
+              <div className="text-orange-100 text-sm font-inter group-hover:text-white transition-all duration-300">Cities Covered</div>
             </div>
           </div>
         </div>
         
-        {/* Enhanced background animated elements */}
+        {/* Background animated elements */}
         <div className="absolute top-10 left-10 animate-floating3d">
-          <div className="text-6xl opacity-10">🍽️</div>
+          <div className="text-6xl opacity-10">🎉</div>
         </div>
         <div className="absolute bottom-10 right-10 animate-float">
-          <div className="text-7xl opacity-10">🚚</div>
-        </div>
-        <div className="absolute top-1/2 left-1/4 animate-pulse-subtle">
-          <div className="text-5xl opacity-10">⭐</div>
+          <div className="text-7xl opacity-10">🍴</div>
         </div>
       </section>
 
-      {/* Enhanced CTA Section */}
+      {/* CTA Section */}
       <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-white rounded-full animate-float"></div>
@@ -491,10 +492,10 @@ const Index = () => {
         
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-4xl md:text-6xl font-black mb-6 font-poppins">
-            Craving Authentic <span className="gradient-text">Karnataka</span> Food?
+            Ready to Plan Your <span className="gradient-text">Perfect Event</span>?
           </h2>
           <p className="text-gray-300 mb-12 text-xl font-inter leading-relaxed max-w-2xl mx-auto">
-            Join thousands of food lovers and experience the traditional flavors that define South Indian cuisine
+            Get personalized catering solutions for your special day. Contact us for custom packages and expert event planning.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link to="/menu">
@@ -502,21 +503,21 @@ const Index = () => {
                 size="lg" 
                 className="btn-premium text-white font-bold px-12 py-4 text-xl shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
-                <ChefHat className="w-6 h-6 mr-3" />
-                Start Ordering
+                <Calendar className="w-6 h-6 mr-3" />
+                Book Your Event
                 <ArrowRight className="w-6 h-6 ml-3" />
               </Button>
             </Link>
-            <Link to="/menu">
+            <a href="https://wa.me/919123456789?text=Hi%20Ghar%20Khanaa!%20I%27d%20like%20to%20discuss%20catering%20options%20for%20my%20upcoming%20event." target="_blank" rel="noopener noreferrer">
               <Button 
                 size="lg" 
                 variant="outline" 
                 className="glass-effect text-white border-white hover:bg-white hover:text-gray-900 px-12 py-4 text-xl font-bold transform hover:scale-105 transition-all duration-300 shadow-xl"
               >
-                <MapPin className="w-6 h-6 mr-3" />
-                Download App
+                <Phone className="w-6 h-6 mr-3" />
+                Get Quote on WhatsApp
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
